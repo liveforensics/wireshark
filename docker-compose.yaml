@@ -1,0 +1,10 @@
+version: '3.0'
+
+services:
+    shark2004:
+        image: liveforensics/wireshark:2004
+        container_name: shark2004
+        build:
+            context: .
+            dockerfile: Dockerfile
+  
