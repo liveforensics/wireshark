@@ -5,13 +5,23 @@ cmake -G "Visual Studio 16 2019" -A x64 ..\wireshark
 
 Write-Host "Cleaning"
 msbuild /m /p:Configuration=RelWithDebInfo Wireshark.sln /t:Clean
+if(Test-Path "c:\development\wsbuild64\run\RelWithDebInfo")
+{
+    Remove-Item "c:\development\wsbuild64\run\RelWithDebInfo" -Force -Recurse 
+}
 
 Write-Host "Building Wireshark"
 msbuild /m /p:Configuration=RelWithDebInfo Wireshark.sln
 
 if(Test-Path 'C:\Development\wsbuild64\run\RelWithDebInfo\Wireshark.exe')
 {
-    Write-Host "Success"
+    Write-Host "Successfully Built Wireshark"
+    if(Test-Path 'c:\development\wsbuild64\nsis_package_prep.vcxproj')
+    {
+        Write-Host "Creating the Installer"
+        msbuild /m /p:Configuration=RelWithDebInfo nsis_package_prep.vcxproj
+        msbuild /m /p:Configuration=RelWithDebInfo nsis_package.vcxproj
+    }
 }
 else 
 {
