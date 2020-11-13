@@ -16,7 +16,7 @@ ADD go.ps1 c:\Development\wsbuild64\go.ps1
 
 # # Restore the default Windows shell for correct batch processing.
 SHELL ["cmd", "/S", "/C"]
-s
+
 RUN SETX /M Path "%Path%;C:\\program files\\cmake\\bin;"
 ENV QT5_BASE_DIR="c:\Qt\Qt5.12.9\5.12.9\msvc2017_64"
 ENV WIRESHARK_BASE_DIR="C:\Development"
