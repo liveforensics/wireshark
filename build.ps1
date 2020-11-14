@@ -7,8 +7,8 @@ Write-Host "Installing Python 3"
 choco install -y python3
 
 Write-Host "Installing Perl - eek!"
-# choco install -y activeperl
-choco install -y strawberryperl
+choco install -y activeperl
+# choco install -y strawberryperl
 
 Write-Host "Installing git"
 choco.exe install -y git
@@ -32,12 +32,12 @@ New-Item -ItemType Directory -Path c:\Development\wsbuild64
 Write-Host "Installing vs community edition"
 choco install -y visualstudio2019community visualstudio2019-workload-nativedesktop
 
-if(Test-Path 'c:/temp/Qt5.12.9.zip')
-{
-    Write-Host "Installing QT"
-    Expand-Archive -Path 'c:/temp/Qt5.12.9.zip' -DestinationPath 'c:\qt';
-    Remove-Item -Path 'c:/temp/Qt5.12.9.zip' -Force
-}
+# if(Test-Path 'c:/temp/Qt5.12.9.zip')
+# {
+#     Write-Host "Installing QT"
+#     Expand-Archive -Path 'c:/temp/Qt5.12.9.zip' -DestinationPath 'c:\qt';
+#     Remove-Item -Path 'c:/temp/Qt5.12.9.zip' -Force
+# }
 
 Write-Host "Pulling NSIS"
 $downloadUrl = "https://nav.dl.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1-setup.exe"
@@ -47,9 +47,6 @@ if(Test-Path c:\temp\nsis.exe)
     Write-Host "Installing NSIS"
     Set-Location C:\Temp
     .\nsis.exe /S /NCRC /D=c:\nsis
+    Remove-Item nsis.exe -Force
 }
 
-# .\nsis-3.06.1-setup.exe /S /NCRC /D=c:\nsis
-# https://nav.dl.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1-setup.exe
-
-# http://download.qt.io/official_releases/qt/5.12/5.12.9/qt-opensource-windows-x86-5.12.9.exe

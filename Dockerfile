@@ -8,7 +8,7 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 RUN mkdir c:\temp
 ADD build.ps1 c:\temp\build.ps1
-ADD Qt5.12.9.zip c:\temp\Qt5.12.9.zip
+# ADD Qt5.12.9.zip c:\temp\Qt5.12.9.zip
 RUN c:\temp\build.ps1
 
 WORKDIR c:\development
