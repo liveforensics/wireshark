@@ -47,6 +47,6 @@ if(Test-Path c:\temp\nsis.exe)
     Write-Host "Installing NSIS"
     Set-Location C:\Temp
     .\nsis.exe /S /NCRC /D=c:\nsis
-    Remove-Item nsis.exe -Force
 }
+#
 
