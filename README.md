@@ -12,12 +12,6 @@ Because of licensing requirements, it doesn't look like I can easiliy incorporat
 
 I've cloned the github Wireshark repo into c:\code.
 
-## Help
-
-From inside c:\development\wsbuild64 (the starting folder) just run
-
-`.\help.ps1`
-
 ## Quickstart
 
 I've installed Qt framework (v5.12.9) in C:\qt.
@@ -41,6 +35,12 @@ Back inside of c:\development\wsbuild64, I've created a PowerShell script which 
 and you can run it with
 
 `.\go.ps1`
+
+## Help
+
+From inside the running container - c:\development\wsbuild64 (the starting folder) just run
+
+`.\help.ps1`
 
 ## Environment Variables
 
