@@ -11,17 +11,17 @@ if(Test-Path "c:\development\wsbuild64\run\RelWithDebInfo")
 }
 
 Write-Host "Building Wireshark"
-msbuild /m /p:Configuration=RelWithDebInfo Wireshark.sln
+msbuild /p:Configuration=RelWithDebInfo Wireshark.sln
 
 if(Test-Path 'C:\Development\wsbuild64\run\RelWithDebInfo\Wireshark.exe')
 {
     Write-Host "Successfully Built Wireshark"
-    if(Test-Path 'c:\development\wsbuild64\nsis_package_prep.vcxproj')
-    {
-        Write-Host "Creating the Installer"
-        msbuild /m /p:Configuration=RelWithDebInfo nsis_package_prep.vcxproj
-        msbuild /m /p:Configuration=RelWithDebInfo nsis_package.vcxproj
-    }
+    # if(Test-Path 'c:\development\wsbuild64\nsis_package_prep.vcxproj')
+    # {
+    #     Write-Host "Creating the Installer"
+    #     msbuild /p:Configuration=RelWithDebInfo nsis_package_prep.vcxproj
+    #     msbuild /p:Configuration=RelWithDebInfo nsis_package.vcxproj
+    # }
 }
 else 
 {

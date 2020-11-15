@@ -10,11 +10,13 @@ Also note that the image is based on windowsservercore:2004, so you'll need to m
 
 Because of licensing requirements, it doesn't look like I can easiliy incorporate the Qt framework into the image, so you will have to install Qt locally and use a mapped volume to allow the running container to use the libraries contained within it. I used https://www.qt.io/download to get the Open Source version - QT Online Installer.
 
+I've cloned the github Wireshark repo into c:\code.
+
 ## Quickstart
 
 I've installed Qt framework (v5.12.9) in C:\qt and I've created a folder for the build artifacts in c:\code\built-binaries.
 
-docker run -it --rm --name wireshark -v C:\qt\5.12.9\msvc2017_64:c:\qt -v c:\code\built-binaries:c:\development\wsbuild64\run liveforensics/wireshark:2004
+`docker run -it --rm --name wireshark -v C:\qt\5.12.9\msvc2017_64:c:\qt -v c:\code\built-binaries:c:\development\wsbuild64\run -v c:\code\wireshark:c:\development\wireshark liveforensics/wireshark:2004`
 
 The container should open in c:\development\wsbuild64. If you want to check some locations:
 
@@ -54,7 +56,7 @@ I like to use docker-compose, so once you've cloned the github repo and switched
 
 `docker-compose build`
 
-It'll take a while because it's freaking huge!
+It'll take a while because it's freaking huge! It's got python AND perl AND visual studio AND java AND other stuff.
 
 ## Alternate Windows Images
 
@@ -62,4 +64,4 @@ If you're running an older version of Windows, and want to build a compatible im
 
 ## Qt inside the container
 
-If you are happy to create your own containers, you could use liveforensics/wireshark:2004 as your base image and copy the appropriate chunk of the qt install folders into the container itself.
+If you are happy to create your own containers, you could use liveforensics/wireshark:2004 as your base image and copy the appropriate chunk of the qt install folders into the container itself. Remember to also fix up the QT5_BASE_DIR environment variable.

@@ -6,6 +6,9 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 Write-Host "Installing Python 3"
 choco install -y python3
 
+Write-Host "Installing Nano - because, well why not!"
+choco install -y nano
+
 Write-Host "Installing Perl - eek!"
 choco install -y activeperl
 # choco install -y strawberryperl
