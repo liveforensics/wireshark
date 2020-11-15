@@ -16,8 +16,6 @@ docker run -it --rm --name wireshark-builder `
     -v C:\qt:c:\qt `
     -v g:\code\build-binaries:c:\development\wsbuild64\run `
     -v g:\code\wireshark-master:c:\development\wireshark `
-    -v g:\shared:c:\shared `
-    --env NSISDIR=c:\nsis\bin `
     --env QT5_BASE_DIR=C:\qt\5.12.9\msvc2017_64 `
     liveforensics/wireshark:2004
 
