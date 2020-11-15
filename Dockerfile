@@ -11,6 +11,8 @@ ADD build.ps1 c:\temp\build.ps1
 RUN c:\temp\build.ps1
 
 ADD go.ps1 c:\Development\wsbuild64\go.ps1
+ADD help.ps1 c:\Development\wsbuild64\help.ps1
+
 
 # # Restore the default Windows shell for correct batch processing.
 SHELL ["cmd", "/S", "/C"]
